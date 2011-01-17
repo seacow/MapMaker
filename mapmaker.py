@@ -1,8 +1,11 @@
+#!/usr/bin/env python
+
 import sys
+import math
+import random
+
 import pygame
 from pygame.locals import *
-import random
-import math
 
 class Water:
     def __init__ (self, current):
@@ -125,6 +128,8 @@ class Dirt:
 
 
 if __name__ == "__main__":
+    import options
+
     pygame.init()
 
     n = 700
@@ -276,7 +281,8 @@ if __name__ == "__main__":
             top_coor = size[1] - height
             left_coor = dirt.get_position() * dirt_width
             pygame.draw.rect (screen, (0,137,64), (left_coor, top_coor, dirt_width, height))
-        if 1:
+
+        if options.render_water:
             for water in waters:
                 radius = 4
                 y = int(size[1] - water.current.get_height())
