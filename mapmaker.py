@@ -62,6 +62,7 @@ class Water:
     def calc_capacity (self):
         #self.capacity = math.pow(self.speed, 3.0/2.0)
         #self.capacity = math.pow(self.speed, 2.0)/5.0
+        #self.capacity = self.speed * 5.0
         self.capacity = self.speed
         
 
@@ -113,7 +114,25 @@ class Dirt:
         self.height += sediment
 
     def erode (self, erosion_potential):
+        #left_height = self.height
+        #right_height = self.height
+        #if not self.left == None:
+            #left_height = self.left.get_height()
+        ##if not self.right == None:
+            #right_height = self.right.get_height()
+        #dif_left = self.height - left_height
+        ##dif_right = self.height - right_height
+        #digging = 0.0
+
         sediment = (1 + random.random()) * erosion_potential / 2.0
+
+        #if dif_left > dif_right and dif_left < sediment:
+            #digging = sediment - dif_left
+        #elif dif_left < dif_right and dif_right < sediment:
+            ##digging = sediment - dif_right
+
+        #sediment -= digging * .9
+
         self.height -= sediment
         return sediment
 
